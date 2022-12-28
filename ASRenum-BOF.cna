@@ -1,0 +1,39 @@
+alias ASRenum {
+
+    if ( barch($1) eq "x86" )
+	{
+		$handle = openf(script_resource("ASRenum-BOF.x86.o"));
+		$bof   = readb($handle, -1);
+		closef($handle);
+
+		if (!-isadmin $1)
+		{
+			berror($1, "This beacon is not in an elevated context.");
+			return;
+		}
+
+		beacon_inline_execute($1, $data, "go");
+		}
+	else if ( barch($1) eq "x64" )
+		{
+			$handle = openf(script_resource("ASRenum-BOF.x64.o"));
+			$bof   = readb($handle, -1);
+			closef($handle);
+
+			if (!-isadmin $1)
+			{
+				berror($1, "This beacon is not in an elevated context.");
+
+				return;
+			}
+
+			beacon_inline_execute($1, $bof, "go");
+		}
+	else
+	{
+			berror($1, "The architecture of the process supplied does not match expectations");
+			return;
+	}
+}
+
+beacon_command_register("ASRenum", "ASR rules and exceptions", "Synopsis: Identify ASR rules and exceptions");
