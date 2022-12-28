@@ -117,8 +117,6 @@ public class Connect
             Console.WriteLine("    {0}  {1}", actions[i], rules[i]);
         }
 
-        Console.WriteLine("    ==============================================================================================================");
-
         foreach ( ManagementObject mo in queryCollection)
         {
             if (mo["AttackSurfaceReductionOnlyExclusions"] == null)
