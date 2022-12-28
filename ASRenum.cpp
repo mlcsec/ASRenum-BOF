@@ -308,7 +308,6 @@ int main(int iArgCnt, char** argv) {
             }
         }
         VariantClear(&vtProp);
-		printf("    ==============================================================================================================\n");
 
         hr = pclsObj->Get(L"AttackSurfaceReductionOnlyExclusions", 0, &vtProp, 0, 0);
         printf("\n[*] ASR Exclusions: \n");
