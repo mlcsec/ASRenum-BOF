@@ -18,4 +18,10 @@ $ make all
 - initial script
 
 ### ASRenum.cs
-- todo: test BOF.NET
+
+```
+beacon> inlineExecuteAssembly --dotnetassembly C:\Tools\ASRenum.exe
+```
+```
+beacon> bofnet_executeassembly ASRenum
+```
